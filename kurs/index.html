@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Кабинет ученицы — онлайн-курс маникюра</title>
+<link rel="stylesheet" href="../css/fonts.css">
+<style>
+:root{
+  --porcelain:#FCFAF7; --blush:#F3E7E2; --blush-deep:#EBD9D2;
+  --ink:#2E2723; --ink-soft:#7A6E64; --ink-faint:#A79B90;
+  --mocha:#3E362F; --on-dark:#F2EBE3;
+  --gold:#B79B6E; --gold-deep:#8E7448; --gold-light:#D8C4A0;
+  --line:rgba(46,39,35,.13); --line-gold:rgba(183,155,110,.42);
+  --card:#fff; --ok:#7d9a6a;
+  --display:"Lora",Georgia,serif; --body:"Onest","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--porcelain);color:var(--ink);font:16px/1.6 var(--body)}
+a{color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+.top{background:var(--mocha);color:var(--on-dark)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;min-height:64px;gap:10px}
+.logo{font:500 20px var(--display)}
+.logo i{color:var(--gold-light)}
+.top nav{display:flex;gap:4px}
+.top nav button{background:none;border:1px solid transparent;color:var(--on-dark);font:14px var(--body);padding:7px 13px;border-radius:999px;cursor:pointer;opacity:.75}
+.top nav button.on{border-color:var(--gold);opacity:1}
+h1{font:500 clamp(28px,5vw,40px)/1.2 var(--display);margin-bottom:10px}
+h2{font:500 26px/1.25 var(--display)}
+h3{font:600 17px var(--body);margin-bottom:8px}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
+.muted{color:var(--ink-soft)}
+.view{display:none;padding:40px 0 80px}.view.on{display:block}
+.btn{display:inline-block;background:var(--mocha);color:var(--on-dark);border:0;border-radius:999px;padding:12px 24px;font:500 15px var(--body);cursor:pointer;text-decoration:none}
+.btn.ghost{background:none;color:var(--mocha);border:1px solid var(--line-gold)}
+.btn.done{background:var(--ok)}
+.hello{display:grid;grid-template-columns:1fr 260px;gap:28px;align-items:center;margin-bottom:44px}
+.progress{background:var(--card);border:1px solid var(--line-gold);border-radius:20px;padding:22px}
+.progress b{font:500 34px var(--display);color:var(--gold-deep)}
+.bar{height:8px;background:var(--blush);border-radius:99px;margin:12px 0 8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-light),var(--gold));border-radius:99px;transition:width .4s}
+.module{margin-bottom:40px}
+.module-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line-gold);padding-bottom:10px;margin-bottom:18px;gap:10px}
+.module-head span{font-size:14px;color:var(--ink-soft)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;transition:.2s;position:relative}
+.tile:hover{border-color:var(--gold);transform:translateY(-2px)}
+.tile .n{font:italic 15px var(--display);color:var(--gold-deep)}
+.tile p{font-weight:500;margin:4px 0 10px;line-height:1.35}
+.tile small{color:var(--ink-faint);font-size:13px}
+.passed::after{content:"✓";position:absolute;top:14px;right:16px;width:24px;height:24px;border-radius:50%;background:var(--ok);color:#fff;font-size:13px;display:grid;place-items:center}
+.tlist{display:grid;gap:10px;max-width:760px}
+.trow{display:grid;grid-template-columns:44px 1fr 24px;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;cursor:pointer;transition:.2s;position:relative}
+.trow:hover{border-color:var(--gold)}
+.trow .n{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-gold);display:grid;place-items:center;font:500 18px var(--display);color:var(--gold-deep)}
+.trow.passed::after{display:none}.trow.passed .n{background:var(--ok);border-color:var(--ok);color:#fff}
+.trow p{font-weight:500;margin-bottom:2px}.trow small{color:var(--ink-soft);font-size:14px}
+.trow .go{color:var(--gold)}
+.bonus{background:var(--blush);border-radius:20px;padding:22px 24px;display:flex;flex-wrap:wrap;gap:12px 28px}
+.bonus a{text-decoration:none;font-size:15px;border-bottom:1px solid var(--blush-deep)}
+.bonus a::before{content:"↓ ";color:var(--gold-deep)}
+.crumbs{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
+.crumbs a{cursor:pointer;text-decoration:underline;text-decoration-color:var(--line-gold)}
+.player{width:100%;aspect-ratio:16/9;background:var(--mocha);border:0;border-radius:18px;margin:22px 0 6px;display:block}
+.vlink{font-size:13px;color:var(--ink-soft)}
+.parts{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 8px}
+.parts button{border:1px solid var(--line-gold);background:var(--card);border-radius:999px;padding:6px 14px;font:14px var(--body);cursor:pointer;color:var(--ink)}
+.parts button.on{background:var(--mocha);color:var(--on-dark);border-color:var(--mocha)}
+.box{background:var(--card);border:1px solid var(--line-gold);border-radius:18px;padding:20px;margin-top:26px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between}
+.box p{max-width:520px}
+.foot{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center;border-top:1px solid var(--line-gold);margin-top:34px;padding-top:24px}
+.note{font-size:13px;color:var(--ink-faint);margin-top:40px}
+@media(max-width:760px){.hello{grid-template-columns:1fr}.top nav button{padding:6px 9px;font-size:13px}.logo{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <div class="logo">Онлайн-курс <i>маникюра</i></div>
+  <nav id="nav">
+    <button data-v="home" class="on">Главная</button>
+    <button data-v="theory">Теория</button>
+    <button data-v="practice">Практика</button>
+  </nav>
+</div></div>
+
+<main class="wrap">
+
+<section class="view on" id="home">
+  <div class="hello">
+    <div>
+      <div class="eyebrow">Комбинированный маникюр с покрытием гель-лака под кутикулу</div>
+      <h1>Добро пожаловать!</h1>
+      <p class="muted">Учитесь в своём темпе — доступ навсегда. Сначала теория: в ней «почему». Потом практика: в ней «как». Пройдёте все уроки — напишите преподавателю и получите именной сертификат.</p>
+      <p class="muted" style="margin-top:12px;font-size:14px">Видео и методички открываются, когда вы вошли в Google под почтой, которую указали при оплате.</p>
+      <p style="margin-top:20px"><a class="btn" id="cont">Начать с темы 1</a></p>
+    </div>
+    <div class="progress">
+      <div class="muted" style="font-size:14px">Пройдено</div>
+      <b id="pNum">0 из 14</b>
+      <div class="bar"><i id="pBar"></i></div>
+      <small class="muted" id="pLeft"></small>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="module-head"><h2>Модуль 1. Теория</h2><span>8 тем</span></div>
+    <div class="grid" id="hTheory"></div>
+  </div>
+  <div class="module">
+    <div class="module-head"><h2>Модуль 2. Практика</h2><span>6 уроков</span></div>
+    <div class="grid" id="hPractice"></div>
+  </div>
+  <div class="module">
+    <div class="module-head"><h2>Материалы</h2><span>PDF, можно распечатать</span></div>
+    <div class="bonus"><a id="buyLink" target="_blank">Что купить для старта</a></div>
+  </div>
+  <p class="note">Материалы курса — только для вашего обучения. Пожалуйста, не передавайте их другим.</p>
+</section>
+
+<section class="view" id="theory">
+  <div class="crumbs"><a data-go="home">Главная</a> → Теория</div>
+  <div class="eyebrow">Модуль 1 · 8 тем</div>
+  <h1>Теория</h1>
+  <p class="muted" style="margin-bottom:28px">Здесь — «почему». Проходите темы по порядку: каждая следующая опирается на предыдущую.</p>
+  <div class="tlist" id="tlist"></div>
+</section>
+
+<section class="view" id="topic">
+  <div class="crumbs"><a data-go="home">Главная</a> → <a data-go="theory">Теория</a> → <span id="tCrumb"></span></div>
+  <div class="eyebrow" id="tEye"></div>
+  <h1 id="tTitle"></h1>
+  <p class="muted" id="tLead"></p>
+  <iframe id="tPlayer" class="player" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <a class="vlink" id="tOpen" target="_blank">Видео не показывается? Открыть отдельно ↗</a>
+  <div class="box"><p><b>Методичка темы</b><br><span class="muted">Все слайды темы в одном файле: схемы, правила, «Важно». Можно распечатать.</span></p><a class="btn ghost" id="tPdf" target="_blank">↓ Открыть методичку</a></div>
+  <div class="foot">
+    <a class="btn ghost" id="tPrev">← Предыдущая</a>
+    <button class="btn" id="tDone">Отметить «Пройдено»</button>
+    <a class="btn ghost" id="tNext">Следующая →</a>
+  </div>
+</section>
+
+<section class="view" id="practice">
+  <div class="crumbs"><a data-go="home">Главная</a> → Практика</div>
+  <div class="eyebrow">Модуль 2 · 6 уроков</div>
+  <h1>Практика</h1>
+  <p class="muted" style="margin-bottom:28px">Здесь — «как». Смотрите урок, готовьте материалы по листу урока и отрабатывайте сами.</p>
+  <div class="tlist" id="llist"></div>
+</section>
+
+<section class="view" id="lesson">
+  <div class="crumbs"><a data-go="home">Главная</a> → <a data-go="practice">Практика</a> → <span id="lCrumb"></span></div>
+  <div class="eyebrow" id="lEye"></div>
+  <h1 id="lTitle"></h1>
+  <p class="muted" id="lLead"></p>
+  <div class="parts" id="lParts"></div>
+  <iframe id="lPlayer" class="player" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <a class="vlink" id="lOpen" target="_blank">Видео не показывается? Открыть отдельно ↗</a>
+  <div class="box"><p><b>Лист урока</b><br><span class="muted">Что приготовить, шаги по каждой части и частые ошибки. Можно распечатать.</span></p><a class="btn ghost" id="lPdf" target="_blank">↓ Открыть лист урока</a></div>
+  <div class="foot">
+    <a class="btn ghost" id="lPrev">← Предыдущий</a>
+    <button class="btn" id="lDone">Отметить «Пройдено»</button>
+    <a class="btn ghost" id="lNext">Следующий →</a>
+  </div>
+</section>
+</main>
+
+<script>
+// Видео и PDF лежат на Google Диске аккаунта курса и открыты только почтам учениц.
+// На этой странице — только названия и ссылки; сами материалы без доступа не откроются.
+const PREVIEW=id=>"https://drive.google.com/file/d/"+id+"/preview";
+const VIEW=id=>"https://drive.google.com/file/d/"+id+"/view";
+const BUY="1LoUaZbMS71v_KBUnbZPFl5jzjw9wRUDq";
+
+const TOPICS=[
+ {t:"Строение кожи",lead:"С каким слоем кожи можно работать и почему нельзя задевать блестящий слой.",d:"2:16",v:"1HrmdlI6qCNNj6jeKWviO_tvUu0h2nstI",pdf:"1XXUBHizxYEt3J73iIAB6cWL4SZYQOL46"},
+ {t:"Строение ногтя",lead:"Валики, ногтевая пластина, матрикс и лунка, слои ногтя.",d:"22:19",v:"1S-5E0-LY7b5WwNw_H3XgWP94EhM06ane",pdf:"1mVmXR4jqLtN9xMhz1l2FhsEAnrs6mDZF"},
+ {t:"Гипонихий и кутикула",lead:"Зачем нужна кутикула, что такое птеригий, 3 вида кутикулы.",d:"6:10",v:"16OcDHBrIabpCD3CRCTNWlpXabpDRHCK_",pdf:"1k1Ko0nslsCzjibtFbti4NhkND6uet1q1"},
+ {t:"Проблемы ногтей и кожи",lead:"С чем можно работать, а с чем — сразу к врачу.",d:"18:30",v:"1rPrpVVNHudsF3x5rbDr1_XWXSNvTu6dp",pdf:"16fSfSY8HFGniVn0WdYGVyIR4mNObAQfW"},
+ {t:"Дезинфекция и стерилизация",lead:"Как обработать инструмент, чтобы он был безопасен для вас и клиентки.",d:"11:53",v:"1mLb6nVcICCSg37caURC-MINEL2V7DirH",pdf:"1Dp54ZLEF4qiJjYTGhBH1mQlusj6XVOMa"},
+ {t:"Цены и позиционирование",lead:"Себестоимость, цена на старте и почему конкурировать нужно качеством.",d:"5:40",v:"1RotlUQB24owO_bl1OZAtBxv34vnuQbif",pdf:"1LmFuTa0GCk2bRxIXF4uu35MvNRze9-Hu"},
+ {t:"Форма ногтя и апекс",lead:"Формы опила, точка апекса и зона стресса.",d:"6:05",v:"1APp6XAIU22j3TvQpldKLKRKdpQQSto81",pdf:"13pgJDiGZ2JlntpqDjMMn_7oJrM5PNxFU"},
+ {t:"Полировка кожи",lead:"Три способа полировки и чем полировать.",d:"1:33",v:"1SyZ6L91MHW3Es0mFBDDJ72iwlGcH1flK",pdf:"11B-GkLC7H9XATiPT3rwCHKU9ldF7FUJQ"}
+];
+const LESSONS=[
+ {t:"Снятие покрытия и подготовка ногтя",lead:"Снимаем старый гель-лак аккуратно, не повреждая ноготь.",pdf:"1zKg286vi3bZVz5bxQmHWE6snQbQxtv0V",parts:[
+  ["Снятие гель-лака фрезой","5:28","1jyhbuxzDPIA5jXQ2WVjKugDZisStkSB2"],["Шлифовка ногтя пилкой","3:24","17xncIKnGx9Dra9xdUk8BiIBgMLInpbmj"]]},
+ {t:"Опил формы и коррекция",lead:"Форма, одинаковая длина и коррекция клюющего ногтя.",pdf:"1Ywv5KThj146sqsbxxr8QYiNVXfaJiyXO",parts:[
+  ["Опил в овал и выравнивание длины","8:49","1na5J7-LlZiy9W9sEjc1d9uBwiurbUYrG"]]},
+ {t:"Наращивание на клюющем ногте",lead:"Выравниваем форму ногтя с помощью формы и полигеля.",pdf:"1O-HefxYdFxKRl4Y_e07zHyb_B1LT3GtD",parts:[
+  ["Праймер, форма, полигель","3:58","1smsqKA9HPa08nzWosr5pLQVA6JBnT1W0"],["Снятие формы и опил","2:47","1RL6GZ2hfdbZ54nkP2pQf8OnjGkLFqoGt"]]},
+ {t:"Маникюр фрезой: кутикула, пазухи, срез",lead:"Безопасный аппаратный маникюр и срез кутикулы ножницами.",pdf:"1qy9GkgLr88DGkmlI5JwLVhIdAGt0WpTX",parts:[
+  ["Безопасный маникюр фрезой «пламя»","11:24","1WpI6yiD-R-ACxvtjbvyaNrDNTeByVdep"],["Пазухи и работа в обратную сторону","6:09","1zrqNnZmaFNeWI3r4M2AybN2nYcK0WO_I"],["Срез кутикулы ножницами","4:39","1KK56boJC6GcOnE_EmDjCIogKtyYkNdQd"]]},
+ {t:"Выравнивание гелем и апекс",lead:"Подложка, гель на наращенном пальце, выравнивание базой и контроль блика.",pdf:"1uWS9538qpNy7nFrLAs0MVXFgJiS3GZdj",parts:[
+  ["Обезжиривание, праймер, подложка","3:40","1DCb6dytvk-fZ8bzgCb5Hg_upDyc0ER0D"],["Гель на наращенном пальце и апекс","4:03","1HVtiHO0NH9a1YcKB0k9WEHCd3_0jZLrT"],["Выравнивание остальных пальцев базой","3:01","1RQZRd9WozjwEqTNesjuThx84BAZR68ri"],["Проверка апекса и блика после сушки","2:11","1I6mdPhfCWagsVZEbd7qciTnKL0cHmfis"],["Выравнивание двух ногтей и контроль блика","2:17","1k-_pTcxheIx23tGR7EQZj1-m1jlDGOhh"]]},
+ {t:"Покрытие гель-лаком и финиш",lead:"Цвет под кутикулу, топ, полировка и масло.",pdf:"1hIuhNVUoznLJs_8VO2xEm2iNHa6CoMhj",parts:[
+  ["Липкий слой и первый слой цвета","2:59","1rtFfYubMHEgDzY8EGiclA3GAOGvyIqwT"],["Второй и третий слой","4:02","1Pd_t9n-AHIMSB6DrKXMRZBvVgOU68CnO"],["Подложка под цвет","2:02","1OeIWFMCf0tN1P639H5xkknp0PiR3K9iU"],["Второй слой цвета","2:04","1IKk8n8MoRWNr0wjdqZ6YL__hR3uOC0XZ"],["Третий слой и подчистка кожи","0:58","1EzgVlUq7SkcHv7611OXL9mSjnMDBZGD1"],["Топ","1:05","1Y_5ajNPX6476R3GP6LNlV2fK4TXZcJOy"],["Липкий слой, полировка, финиш","2:54","1MS958g7OzQDXliXRyit1ZSansR5zoocd"]]}
+];
+
+// Отметки «пройдено» хранятся только в браузере ученицы — для её удобства.
+const KEY="kurs-progress";
+let done={};
+try{done=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}};
+const $=id=>document.getElementById(id);
+
+function render(){
+  const n=Object.keys(done).length;
+  $("pNum").textContent=n+" из 14"; $("pBar").style.width=(n/14*100)+"%";
+  $("pLeft").textContent=n>=14?"Все уроки пройдены — напишите преподавателю за сертификатом":"До сертификата — "+(14-n);
+  const next=TOPICS.findIndex((x,i)=>!done["t"+i]);
+  const nextL=LESSONS.findIndex((x,i)=>!done["l"+i]);
+  $("cont").textContent=next>=0?(n?"Продолжить: ":"Начать: ")+TOPICS[next].t:nextL>=0?"Продолжить: "+LESSONS[nextL].t:"Повторить курс";
+  $("cont").onclick=()=>next>=0?openTopic(next):openLesson(Math.max(nextL,0));
+  $("hTheory").innerHTML=TOPICS.map((x,i)=>`<div class="tile${done["t"+i]?" passed":""}" data-topic="${i}"><span class="n">Тема ${i+1}</span><p>${x.t}</p><small>видео ${x.d} · методичка</small></div>`).join("");
+  $("hPractice").innerHTML=LESSONS.map((x,i)=>`<div class="tile${done["l"+i]?" passed":""}" data-lesson="${i}"><span class="n">Урок ${i+1}</span><p>${x.t}</p><small>${x.parts.length} видео · лист урока</small></div>`).join("");
+  $("tlist").innerHTML=TOPICS.map((x,i)=>`<div class="trow${done["t"+i]?" passed":""}" data-topic="${i}"><span class="n">${i+1}</span><div><p>${x.t}</p><small>${x.lead} · ${x.d}</small></div><span class="go">→</span></div>`).join("");
+  $("llist").innerHTML=LESSONS.map((x,i)=>`<div class="trow${done["l"+i]?" passed":""}" data-lesson="${i}"><span class="n">${i+1}</span><div><p>${x.t}</p><small>${x.lead} · ${x.parts.length} видео</small></div><span class="go">→</span></div>`).join("");
+}
+function setDone(btn,key){btn.classList.toggle("done",!!done[key]);btn.textContent=done[key]?"✓ Пройдено":"Отметить «Пройдено»";
+  btn.onclick=()=>{done[key]?delete done[key]:done[key]=1;save();render();setDone(btn,key)}}
+
+function show(v){
+  document.querySelectorAll(".view").forEach(s=>s.classList.toggle("on",s.id===v));
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v||(v==="topic"&&b.dataset.v==="theory")||(v==="lesson"&&b.dataset.v==="practice")));
+  if(v!=="topic")$("tPlayer").removeAttribute("src");
+  if(v!=="lesson")$("lPlayer").removeAttribute("src");
+  scrollTo(0,0);
+}
+let cur=0,lcur=0;
+function openTopic(i){cur=i;const x=TOPICS[i];
+  $("tCrumb").textContent="Тема "+(i+1);$("tEye").textContent="Тема "+(i+1)+" из 8 · "+x.d;$("tTitle").textContent=x.t;$("tLead").textContent=x.lead;
+  $("tPlayer").src=PREVIEW(x.v);$("tOpen").href=VIEW(x.v);$("tPdf").href=VIEW(x.pdf);
+  $("tPrev").style.visibility=i?"visible":"hidden";$("tNext").textContent=i<7?"Тема "+(i+2)+" →":"К практике →";
+  setDone($("tDone"),"t"+i);show("topic");}
+function openPart(k){const p=LESSONS[lcur].parts[k];
+  $("lPlayer").src=PREVIEW(p[2]);$("lOpen").href=VIEW(p[2]);
+  $("lParts").querySelectorAll("button").forEach((b,j)=>b.classList.toggle("on",j===k));}
+function openLesson(i){lcur=i;const L=LESSONS[i];
+  $("lCrumb").textContent="Урок "+(i+1);$("lEye").textContent="Урок "+(i+1)+" из 6";$("lTitle").textContent=L.t;$("lLead").textContent=L.lead;
+  $("lParts").innerHTML=L.parts.map((p,k)=>`<button data-part="${k}">${L.parts.length>1?"Часть "+(k+1)+" · ":""}${p[0]} · ${p[1]}</button>`).join("");
+  $("lPdf").href=VIEW(L.pdf);
+  $("lPrev").style.visibility=i?"visible":"hidden";$("lNext").textContent=i<5?"Урок "+(i+2)+" →":"На главную →";
+  setDone($("lDone"),"l"+i);openPart(0);show("lesson");}
+
+$("tPrev").onclick=()=>openTopic(cur-1);$("tNext").onclick=()=>cur<7?openTopic(cur+1):openLesson(0);
+$("lPrev").onclick=()=>openLesson(lcur-1);$("lNext").onclick=()=>lcur<5?openLesson(lcur+1):(render(),show("home"));
+$("buyLink").href=VIEW(BUY);
+document.addEventListener("click",e=>{
+  const n=e.target.closest("#nav button");if(n){render();show(n.dataset.v)}
+  const g=e.target.closest("[data-go]");if(g){e.preventDefault();render();show(g.dataset.go)}
+  const t=e.target.closest("[data-topic]");if(t)openTopic(+t.dataset.topic);
+  const l=e.target.closest("[data-lesson]");if(l)openLesson(+l.dataset.lesson);
+  const p=e.target.closest("[data-part]");if(p)openPart(+p.dataset.part);
+});
+render();
+</script>
+</body>
+</html>
