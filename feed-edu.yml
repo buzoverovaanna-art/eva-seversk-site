@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-10-17T12:20:00+07:00">
+  <shop>
+    <name>Студия «Ева»</name>
+    <url>https://eva-seversk.ru/</url>
+    <email>buzoverova.anna00@mail.ru</email>
+    <picture>https://eva-seversk.ru/assets/logo-eva.png</picture>
+    <description>Онлайн-курс маникюра от практикующего мастера: теория и практика в записи, доступ навсегда, сертификат.</description>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="800">Саморазвитие</category>
+      <category id="899" parentId="800">Разное</category>
+    </categories>
+    <offers>
+      <offer id="manikyur-online">
+        <name>Курсы маникюра онлайн с сертификатом: обучение с нуля</name>
+        <url>https://eva-seversk.ru/onlayn-kurs.html</url>
+        <categoryId>899</categoryId>
+        <price>2990</price>
+        <currencyId>RUR</currencyId>
+        <picture>https://eva-seversk.ru/assets/logo-eva.png</picture>
+        <description>Онлайн-курс маникюра для начинающих. Теория: строение кожи и ногтя, кутикула, проблемы ногтей и кожи, дезинфекция и стерилизация инструмента, форма ногтя и апекс, цены и позиционирование. Практика: снятие старого покрытия, маникюр, наращивание, выстраивание архитектуры ногтя, покрытие гель-лаком под кутикулу. Всё в записи, смотреть можно в своём темпе, доступ навсегда. После курса именной сертификат.</description>
+        <param name="Продолжительность" unit="час">5</param>
+        <param name="Формат обучения">Самостоятельно</param>
+        <param name="Результат обучения">Сертификат</param>
+        <param name="Сложность">Для новичков</param>
+        <param name="Тип обучения">Курс</param>
+        <param name="Есть видеоуроки">true</param>
+        <param name="Есть бесплатная часть">false</param>
+        <param name="План" unit="Теория" order="1">Строение кожи и ногтя, кутикула, проблемы ногтей и кожи, дезинфекция и стерилизация, форма ногтя и апекс, цены и позиционирование</param>
+        <param name="План" unit="Практика" order="2">Снятие старого покрытия, маникюр, наращивание ногтя, архитектура ногтя, покрытие гель-лаком под кутикулу</param>
+        <param name="План" unit="Сертификат" order="3">Получение именного сертификата об обучении комбинированному маникюру с покрытием гель-лаком</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>
